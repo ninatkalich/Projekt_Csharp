@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="gabinet_kosmetycznyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="płec" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="pierwsza_rejestracja" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="płeć" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pilęgnacja_Dłoni" Type="bit" Nullable="false" />
+          <Property Name="Makijarz" Type="bit" Nullable="false" />
+          <Property Name="Stylizacja_brwi" Type="bit" Nullable="false" />
+          <Property Name="Masaże" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usługa_id" Type="int" Nullable="false" />
+          <Property Name="Pracownik_id" Type="int" Nullable="false" />
+          <Property Name="Klient_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Zabieg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Wizyta__Klient_i__2E1BDC42">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Klient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Pracowni__2F10007B">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pracownik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Usługa_i__300424B4">
+          <End Role="Zabieg" Type="Self.Zabieg" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zabieg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Usługa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gabinet_kosmetycznyModelStoreContainer">
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zabieg" EntityType="Self.Zabieg" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Wizyta__Klient_i__2E1BDC42" Association="Self.FK__Wizyta__Klient_i__2E1BDC42">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Pracowni__2F10007B" Association="Self.FK__Wizyta__Pracowni__2F10007B">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Usługa_i__300424B4" Association="Self.FK__Wizyta__Usługa_i__300424B4">
+            <End Role="Zabieg" EntitySet="Zabieg" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gabinet_kosmetycznyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="płec" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="pierwsza_rejestracja" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Klient_i__2E1BDC42" FromRole="Klienci" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="płeć" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pilęgnacja_Dłoni" Type="Boolean" Nullable="false" />
+          <Property Name="Makijarz" Type="Boolean" Nullable="false" />
+          <Property Name="Stylizacja_brwi" Type="Boolean" Nullable="false" />
+          <Property Name="Masaże" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Pracowni__2F10007B" FromRole="Pracownicy" ToRole="Wizyta" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Wizyta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Usługa_id" Type="Int32" Nullable="false" />
+          <Property Name="Pracownik_id" Type="Int32" Nullable="false" />
+          <Property Name="Klient_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__Wizyta__Klient_i__2E1BDC42" FromRole="Wizyta" ToRole="Klienci" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Wizyta__Pracowni__2F10007B" FromRole="Wizyta" ToRole="Pracownicy" />
+          <NavigationProperty Name="Zabieg" Relationship="Self.FK__Wizyta__Usługa_i__300424B4" FromRole="Wizyta" ToRole="Zabieg" />
+        </EntityType>
+        <EntityType Name="Zabieg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Usługa_i__300424B4" FromRole="Zabieg" ToRole="Wizyta" />
+        </EntityType>
+        <Association Name="FK__Wizyta__Klient_i__2E1BDC42">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Klient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Pracowni__2F10007B">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Pracownik_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Wizyta__Usługa_i__300424B4">
+          <End Role="Zabieg" Type="Self.Zabieg" Multiplicity="1" />
+          <End Role="Wizyta" Type="Self.Wizyta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zabieg">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wizyta">
+              <PropertyRef Name="Usługa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gabinet_kosmetycznyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Wizyta" EntityType="Self.Wizyta" />
+          <EntitySet Name="Zabieg" EntityType="Self.Zabieg" />
+          <AssociationSet Name="FK__Wizyta__Klient_i__2E1BDC42" Association="Self.FK__Wizyta__Klient_i__2E1BDC42">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Pracowni__2F10007B" Association="Self.FK__Wizyta__Pracowni__2F10007B">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Wizyta__Usługa_i__300424B4" Association="Self.FK__Wizyta__Usługa_i__300424B4">
+            <End Role="Zabieg" EntitySet="Zabieg" />
+            <End Role="Wizyta" EntitySet="Wizyta" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gabinet_kosmetycznyModelStoreContainer" CdmEntityContainer="gabinet_kosmetycznyEntities">
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="gabinet_kosmetycznyModel.Klienci">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="płec" ColumnName="płec" />
+                <ScalarProperty Name="pierwsza_rejestracja" ColumnName="pierwsza_rejestracja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="gabinet_kosmetycznyModel.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="płeć" ColumnName="płeć" />
+                <ScalarProperty Name="Pilęgnacja_Dłoni" ColumnName="Pilęgnacja_Dłoni" />
+                <ScalarProperty Name="Makijarz" ColumnName="Makijarz" />
+                <ScalarProperty Name="Stylizacja_brwi" ColumnName="Stylizacja_brwi" />
+                <ScalarProperty Name="Masaże" ColumnName="Masaże" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="gabinet_kosmetycznyModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wizyta">
+            <EntityTypeMapping TypeName="gabinet_kosmetycznyModel.Wizyta">
+              <MappingFragment StoreEntitySet="Wizyta">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="Usługa_id" ColumnName="Usługa_id" />
+                <ScalarProperty Name="Pracownik_id" ColumnName="Pracownik_id" />
+                <ScalarProperty Name="Klient_id" ColumnName="Klient_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zabieg">
+            <EntityTypeMapping TypeName="gabinet_kosmetycznyModel.Zabieg">
+              <MappingFragment StoreEntitySet="Zabieg">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

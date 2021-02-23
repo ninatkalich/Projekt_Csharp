@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0d30828a5c984613af71ea60ceb42419" Name="Diagram1">
+        <EntityTypeShape EntityType="gabinet_kosmetycznyModel.Klienci" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gabinet_kosmetycznyModel.Pracownicy" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gabinet_kosmetycznyModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gabinet_kosmetycznyModel.Wizyta" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="gabinet_kosmetycznyModel.Zabieg" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="gabinet_kosmetycznyModel.FK__Wizyta__Klient_i__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="gabinet_kosmetycznyModel.FK__Wizyta__Pracowni__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="gabinet_kosmetycznyModel.FK__Wizyta__Usługa_i__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
