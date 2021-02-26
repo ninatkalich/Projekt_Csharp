@@ -9,16 +9,16 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Height="auto" Margin="0,25,0,3" TextWrapping="Wrap" Text="Nowa Wizyta" VerticalAlignment="Top" Width="100" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="25,100,0,0" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" Width="85"/>
-        <TextBlock x:Name="Wybrany_klient" HorizontalAlignment="Right" Height="30" Margin="0,100,25,0" TextWrapping="Wrap"  Text="Wybierz Klienta" VerticalAlignment="Top" Width="200" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand"/>
+        <TextBlock x:Name="Wybrany_klient"   HorizontalAlignment="Right" Height="30" Margin="0,100,25,0" TextWrapping="Wrap"  Text="Wybierz Klienta" VerticalAlignment="Top" Width="200" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand"/>
 
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="25,150,0,0" TextWrapping="Wrap" Text="Zabieg" VerticalAlignment="Top" Width="85"/>
-        <TextBlock  x:Name="Wybrany_zabieg" HorizontalAlignment="Right" Height="30" Margin="0,150,25,0" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" Width="200" MouseLeftButtonDown="Wybrany_zabieg_MouseLeftButtonDown"/>
+        <TextBlock  x:Name="Wybrany_zabieg" HorizontalAlignment="Right" Height="30" Margin="0,150,25,0" TextWrapping="Wrap" Text="Wybierz zabirg" VerticalAlignment="Top" Width="200" MouseLeftButtonDown="Wybrany_zabieg_MouseLeftButtonDown" Cursor="Hand"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="25,200,0,0" TextWrapping="Wrap" Text="Pracowik" VerticalAlignment="Top" Width="85"/>
-        <TextBlock x:Name="Wybrany_pracownik"  HorizontalAlignment="Right" Height="30" Margin="0,200,25,0" TextWrapping="Wrap" Text="Klient" VerticalAlignment="Top" Width="200" Cursor="Hand" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"/>
+        <TextBlock x:Name="Wybrany_pracownik"  HorizontalAlignment="Right" Height="30" Margin="0,200,25,0" TextWrapping="Wrap" Text="Wybierz Pracownika" VerticalAlignment="Top" Width="200" Cursor="Hand" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown_1"/>
         <TextBlock HorizontalAlignment="Left" Height="30" Margin="25,250,0,0" TextWrapping="Wrap" Text="Data wizyty" VerticalAlignment="Top" Width="85"/>
 
-        <DatePicker HorizontalAlignment="Right" Margin="0,250,25,0" VerticalAlignment="Top" Width="200" />
-        <Button Content="Zarezerwuj" Margin="0,0,0,25"   VerticalAlignment="Bottom" Width="100" FontSize="16"/>
+        <DatePicker x:Name="Wybrana_data" HorizontalAlignment="Right" Margin="0,250,25,0" VerticalAlignment="Top" Width="200" />
+        <Button Content="Zarezerwuj" Margin="0,0,0,25"   VerticalAlignment="Bottom" Width="100" FontSize="16" Click="Button_Click"/>
 
     </Grid>
 </Window>

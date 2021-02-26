@@ -14,65 +14,47 @@ using System.Windows.Shapes;
 
 namespace Csharp_projektzaliczeniowy
 {
-  
+
 
     public partial class PracownicyPage : Window
     {
         gabinet_kosmetycznyEntities database = new gabinet_kosmetycznyEntities();
         public static DataGrid dgrid;
-         int wybranausluga=0;
+        int wybranausluga = 0;
         private void load_kliencitabela()
         {
-            switch(wybranausluga)
+
+            switch (wybranausluga)
             {
                 case 1:
-                 
-                    var query =
-       from Pracownicy in database.Pracownicy
-       where Pracownicy.Pilęgnacja_Dłoni == true
-       select new { Pracownicy.imie, Pracownicy.nazwisko, Pracownicy.płeć, Pracownicy.Pilęgnacja_Dłoni, Pracownicy.Makijarz, Pracownicy.Stylizacja_brwi, Pracownicy.Masaże };
 
-                    Pracownicy_data.ItemsSource = query.ToList();
-                    dgrid = Pracownicy_data;
+                    Pracownicy_data.ItemsSource = database.Pracownicy.Where(x => x.Pilęgnacja_Dłoni == true).ToList();
+
 
                     break;
 
                 case 2:
-                     query =
-       from Pracownicy in database.Pracownicy
-       where Pracownicy.Makijarz == true
-       select new { Pracownicy.imie, Pracownicy.nazwisko, Pracownicy.płeć, Pracownicy.Pilęgnacja_Dłoni, Pracownicy.Makijarz, Pracownicy.Stylizacja_brwi, Pracownicy.Masaże };
+                   Pracownicy_data.ItemsSource= database.Pracownicy.Where(x => x.Makijarz == true).ToList();
 
-                    Pracownicy_data.ItemsSource = query.ToList();
-                    dgrid = Pracownicy_data;
 
                     break;
                 case 3:
 
-                    query =
-      from Pracownicy in database.Pracownicy
-      where Pracownicy.Stylizacja_brwi == true
-      select new { Pracownicy.imie, Pracownicy.nazwisko, Pracownicy.płeć, Pracownicy.Pilęgnacja_Dłoni, Pracownicy.Makijarz, Pracownicy.Stylizacja_brwi, Pracownicy.Masaże };
+                    Pracownicy_data.ItemsSource = database.Pracownicy.Where(x => x.Stylizacja_brwi == true).ToList();
 
-                    Pracownicy_data.ItemsSource = query.ToList();
-                    dgrid = Pracownicy_data;
                     break;
 
                 case 4:
-                    query =
-      from Pracownicy in database.Pracownicy
-      where Pracownicy.Masaże == true
-      select new { Pracownicy.imie, Pracownicy.nazwisko, Pracownicy.płeć, Pracownicy.Pilęgnacja_Dłoni, Pracownicy.Makijarz, Pracownicy.Stylizacja_brwi, Pracownicy.Masaże };
+                    Pracownicy_data.ItemsSource = database.Pracownicy.Where(x => x.Masaże == true).ToList();
 
-                    Pracownicy_data.ItemsSource = query.ToList();
-                    dgrid = Pracownicy_data;
                     break;
                 default:
                     MessageBox.Show("Prosze wybrać zabieg aby wyswielić listę Pracowników");
                     break;
 
             }
-         
+            dgrid = Pracownicy_data;
+
 
         }
 
@@ -83,15 +65,17 @@ namespace Csharp_projektzaliczeniowy
 
             load_kliencitabela();
 
-            
+
         }
 
         private void Pracownicy_data_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int Id = (Pracownicy_data.SelectedItem as Pracownicy).Id;
-            MainWindow.wypelnij_pracownika(Id);
+            
+                int Id = (Pracownicy_data.SelectedItem as Pracownicy).Id;
+                MainWindow.wypelnij_pracownika(Id);
 
-            this.Hide();
+                this.Hide();
+            
         }
     }
 }

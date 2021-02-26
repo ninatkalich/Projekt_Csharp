@@ -27,7 +27,6 @@ namespace Csharp_projektzaliczeniowy
     
         public virtual DbSet<Klienci> Klienci { get; set; }
         public virtual DbSet<Pracownicy> Pracownicy { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Wizyta> Wizyta { get; set; }
         public virtual DbSet<Zabieg> Zabieg { get; set; }
     }

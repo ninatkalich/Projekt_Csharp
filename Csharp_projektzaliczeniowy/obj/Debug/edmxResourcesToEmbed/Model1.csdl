@@ -25,16 +25,6 @@
     <Property Name="Masaże" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Wizyta" Relationship="Self.FK__Wizyta__Pracowni__2F10007B" FromRole="Pracownicy" ToRole="Wizyta" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Wizyta">
     <Key>
       <PropertyRef Name="Id" />
@@ -95,7 +85,6 @@
   <EntityContainer Name="gabinet_kosmetycznyEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Klienci" EntityType="Self.Klienci" />
     <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Wizyta" EntityType="Self.Wizyta" />
     <EntitySet Name="Zabieg" EntityType="Self.Zabieg" />
     <AssociationSet Name="FK__Wizyta__Klient_i__2E1BDC42" Association="Self.FK__Wizyta__Klient_i__2E1BDC42">

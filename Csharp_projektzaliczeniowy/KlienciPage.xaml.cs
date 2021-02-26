@@ -69,12 +69,20 @@ namespace Csharp_projektzaliczeniowy
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Id = (Klienci_data.SelectedItem as Klienci).Id;
+            try
+            {
+                database.Klienci.Remove((from x in database.Klienci
+                                         where x.Id == Id
+                                         select x).Single());
+                database.SaveChanges();
 
-            database.Klienci.Remove((from x in database.Klienci
-                                     where x.Id == Id
-                                     select x).Single());
-            database.SaveChanges();
-            Klienci_data.ItemsSource = database.Klienci.ToList();
+            }
+            catch
+            {
+                MessageBox.Show("Klient posiada nadchodzaca wizyte w naszym salonie najpier usn wizyte");
+            }
+                Klienci_data.ItemsSource = database.Klienci.ToList();
+            
         }
 
 

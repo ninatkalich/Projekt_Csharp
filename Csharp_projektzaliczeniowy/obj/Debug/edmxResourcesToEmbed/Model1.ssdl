@@ -23,16 +23,6 @@
     <Property Name="Stylizacja_brwi" Type="bit" Nullable="false" />
     <Property Name="Masaże" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Wizyta">
     <Key>
       <PropertyRef Name="Id" />
@@ -89,7 +79,6 @@
   <EntityContainer Name="gabinet_kosmetycznyModelStoreContainer">
     <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Wizyta" EntityType="Self.Wizyta" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zabieg" EntityType="Self.Zabieg" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__Wizyta__Klient_i__2E1BDC42" Association="Self.FK__Wizyta__Klient_i__2E1BDC42">

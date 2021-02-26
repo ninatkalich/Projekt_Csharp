@@ -43,7 +43,61 @@ GO
 ALTER TABLE [dbo].[Pracownicy] ADD  CONSTRAINT [DF_Pracowicy_Masa¿e]  DEFAULT ((0)) FOR [Masa¿e]
 GO
 
-
+INSERT INTO [dbo].[Pracownicy]
+           ([imie]
+           ,[nazwisko]
+           ,[p³eæ]
+           ,[Pilêgnacja_D³oni]
+           ,[Makijarz]
+           ,[Stylizacja_brwi]
+           ,[Masa¿e])
+     VALUES
+           ('Nina','Tkalich','Kobieta',1,1,1,1)
+GO
+INSERT INTO [dbo].[Pracownicy]
+           ([imie]
+           ,[nazwisko]
+           ,[p³eæ]
+           ,[Pilêgnacja_D³oni]
+           ,[Makijarz]
+           ,[Stylizacja_brwi]
+           ,[Masa¿e])
+     VALUES
+           ('Ewa','Boska','Kobieta',1,0,0,0)
+GO
+INSERT INTO [dbo].[Pracownicy]
+           ([imie]
+           ,[nazwisko]
+           ,[p³eæ]
+           ,[Pilêgnacja_D³oni]
+           ,[Makijarz]
+           ,[Stylizacja_brwi]
+           ,[Masa¿e])
+     VALUES
+           ('lida','ostulska','Kobieta',0,1,0,0)
+GO
+INSERT INTO [dbo].[Pracownicy]
+           ([imie]
+           ,[nazwisko]
+           ,[p³eæ]
+           ,[Pilêgnacja_D³oni]
+           ,[Makijarz]
+           ,[Stylizacja_brwi]
+           ,[Masa¿e])
+     VALUES
+           ('Patryk','Lipa','Mê¿czyzna',0,0,1,0)
+GO
+INSERT INTO [dbo].[Pracownicy]
+           ([imie]
+           ,[nazwisko]
+           ,[p³eæ]
+           ,[Pilêgnacja_D³oni]
+           ,[Makijarz]
+           ,[Stylizacja_brwi]
+           ,[Masa¿e])
+     VALUES
+           ('Kondrad','W¹sny','Mê¿czyzna',0,0,0,1)
+GO
 CREATE TABLE [dbo].[Zabieg](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[nazwa] [nchar](50) NOT NULL,
