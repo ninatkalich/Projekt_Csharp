@@ -15,7 +15,7 @@ namespace Csharp_projektzaliczeniowy
             load_uslugi();
         }
 
-        private gabinet_kosmetycznyEntities database = new gabinet_kosmetycznyEntities();
+         gabinet_kosmetycznyEntities database = new gabinet_kosmetycznyEntities();
 
         public static DataGrid dgrid;
 
@@ -23,6 +23,16 @@ namespace Csharp_projektzaliczeniowy
         {
             uslugi_data.ItemsSource = database.Zabieg.ToList();
             dgrid = uslugi_data;
+        }
+
+        private void uslugi_data_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+            int Id = (uslugi_data.SelectedItem as Zabieg).Id;
+            MainWindow.wypelnij_zabieg(Id);
+         
+            //tu skonczcyłem tu trzeba otworzyc okno z wizyta i ponumerowanym id 
+            this.Hide();
         }
     }
 }

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Csharp_projektzaliczeniowy.DodajKlienta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Csharp_projektzaliczeniowy"
+        mc:Ignorable="d"
+        Title="DodajKlienta" Height="300" Width="300">
+    <Grid>
+        <TextBlock x:Name="tyl" HorizontalAlignment="Center" Height="25" Margin="0,25,0,0" TextWrapping="Wrap" Text="Klient " Width="110" RenderTransformOrigin="1.826,0.67" VerticalAlignment="Top" FlowDirection="RightToLeft" TextAlignment="Center" FontSize="18"/>
+        <TextBlock  HorizontalAlignment="Left" Height="28" Margin="31,68,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="65"/>
+        <TextBox x:Name="odp1" HorizontalAlignment="Left" Height="28" Margin="181,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="89"/>
+        <TextBlock HorizontalAlignment="Left" Height="28" Margin="31,96,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="65"/>
+        <TextBox x:Name="odp2" HorizontalAlignment="Left" Height="28" Margin="181,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="89"/>
+        <TextBlock  HorizontalAlignment="Left" Height="28" Margin="31,124,0,0" TextWrapping="Wrap" Text="Płeć" VerticalAlignment="Top" Width="65"/>
+        <Button x:Name="dodaj_Button" Content="Dodaj" HorizontalAlignment="Center" Height="68" Margin="0,191,0,0" VerticalAlignment="Top" Width="110" Click="dodaj_Button_Click"/>
+        <ComboBox x:Name="plec_combo" HorizontalAlignment="Left" Height="28" Margin="181,124,0,0"  VerticalAlignment="Top" Width="89">
+
+            <ComboBox.Items>
+                <ComboBoxItem>Kobieta</ComboBoxItem>
+                <ComboBoxItem>Mężczyzna</ComboBoxItem>
+                
+            </ComboBox.Items>
+
+        </ComboBox>
+    </Grid>
+</Window>

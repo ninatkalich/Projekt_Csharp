@@ -20,9 +20,11 @@ namespace Csharp_projektzaliczeniowy
     /// </summary>
     public partial class MainWindow : Window
     {
+      public static umowwizyte oknoumowwizyte = new umowwizyte();
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void textDosteepneuslugi_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -31,10 +33,26 @@ namespace Csharp_projektzaliczeniowy
             oknoDostepneUsługi.ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-            umowwizyte oknoumowwizyte = new umowwizyte();
             oknoumowwizyte.ShowDialog();
         }
+        public static void wypelnij_klijenta(int id_wybranego_klienta)
+        {
+            oknoumowwizyte.Wybrany_klient.Text = id_wybranego_klienta.ToString();
+        }
+        public static void wypelnij_zabieg(int id_wybranego_zabiegu)
+        {
+            oknoumowwizyte.Wybrany_zabieg.Text = id_wybranego_zabiegu.ToString();
+            oknoumowwizyte.sprawdz_pracownika(id_wybranego_zabiegu);
+
+        }
+        public static void wypelnij_pracownika(int id_wybranego_pracownika)
+        {
+            oknoumowwizyte.Wybrany_pracownik.Text = id_wybranego_pracownika.ToString();
+        }
+
+
+
     }
 }

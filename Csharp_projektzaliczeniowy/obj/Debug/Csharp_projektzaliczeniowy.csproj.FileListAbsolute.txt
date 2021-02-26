@@ -25,3 +25,9 @@ C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy
 C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\umowwizyte.baml
 C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\KlienciPage.g.cs
 C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\KlienciPage.baml
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\DodajKlienta.g.cs
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\DodajKlienta.baml
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\EdytujKlienta.g.cs
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\EdytujKlienta.baml
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\PracownicyPage.g.cs
+C:\Users\ZEUS\source\repos\Csharp_projektzaliczeniowy\Csharp_projektzaliczeniowy\obj\Debug\PracownicyPage.baml

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="DostepneUsługipage" Height="450" Width="800">
-    <DataGrid x:Name="uslugi_data" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*">
+    <DataGrid x:Name="uslugi_data" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" MouseDoubleClick="uslugi_data_MouseDoubleClick">
         <DataGrid.Columns>
             <DataGridTextColumn Header="Usługi" Binding="{Binding nazwa}" />
         </DataGrid.Columns>

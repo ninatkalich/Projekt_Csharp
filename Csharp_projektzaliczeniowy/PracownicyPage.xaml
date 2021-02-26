@@ -1,0 +1,33 @@
+﻿<Window x:Class="Csharp_projektzaliczeniowy.PracownicyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Csharp_projektzaliczeniowy"
+        mc:Ignorable="d"
+        Title="KlienciPage" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="Pracownicy_data" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" Margin="0,0,0,75" MouseDoubleClick="Pracownicy_data_MouseDoubleClick"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imię" Binding="{Binding imie}"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding nazwisko}"/>
+                <DataGridTextColumn Header="Płeć" Binding="{Binding płeć}"/>
+                <DataGridTextColumn Header="Pilęgnacja_Dłoni" Binding="{Binding Pilęgnacja_Dłoni}"/>
+                <DataGridTextColumn Header="Makijarz" Binding="{Binding Makijarz}"/>
+                <DataGridTextColumn Header="Stylizacja_brwi" Binding="{Binding Stylizacja_brwi}"/>
+                <DataGridTextColumn Header="Masaże" Binding="{Binding Masaże}"/>
+
+
+
+
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        <Button Content="Dodaj Klienta" HorizontalAlignment="Left" Height="25" Margin="125,0,0,25" VerticalAlignment="Bottom" Width="100" IsEnabled="False"/>
+        <Button Content="Edytuj Klienta" HorizontalAlignment="Left" Height="25" Margin="350,0,0,25" VerticalAlignment="Bottom" Width="100"  IsEnabled="False"/>
+        <Button Content="Usuń Klienta" HorizontalAlignment="Left" Height="25" Margin="575,0,0,25" VerticalAlignment="Bottom" Width="100"  IsEnabled="False"/>
+
+    </Grid>
+
+</Window>
